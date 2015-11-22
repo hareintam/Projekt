@@ -1,5 +1,5 @@
 
-public class Cyclist_test {
+public class CyclistTest {
 
     public static void main(String[] args) {
         Question firstQuestion = new Question();

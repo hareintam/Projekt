@@ -2,10 +2,14 @@ import java.util.Scanner;
 
 public class AnswerChoice {
 
+    public AnswerChoice() {
+
+    }
+
     public void twoChioces() {
-        String first = "Õige";
-        String second = "Vale";
-        System.out.println("a. " + first + " \nb." + second);
+        String right = "Õige";
+        String wrong = "Vale";
+        System.out.println("a. " + right + " \nb." + wrong);
 
     }
     public void userInput() {
