@@ -7,9 +7,9 @@ public class AnswerChoice {
     }
 
     public void twoChioces() {
-        String right = "Õige";
-        String wrong = "Vale";
-        System.out.println("a. " + right + " \nb." + wrong);
+        String right = "Õ11ige";
+        String wrong = " Vale";
+        System.out.println("a." + right + " \nb. " + wrong);
 
     }
     public void userInput() {
