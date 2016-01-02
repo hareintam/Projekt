@@ -48,11 +48,11 @@ public class Quiz extends Application {
     public void addQuestionToLayout(int questionIndex, VBox layout, Question question, Button continueButton) {
 
         continueButton.setDisable(true);
-        Label questionText = new Label(questionIndex+1 + "/" + question.data.size() + ". küsimus: " + question.getQuestionText(questionIndex));
+        Label questionText = new Label(questionIndex + 1 + "/" + question.data.size() + ". küsimus: " + question.getQuestionText(questionIndex));
         layout.getChildren().add(questionText);
 
         ToggleGroup answerChoices = new ToggleGroup();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < question.data.get(questionIndex).size() - 2; i++) {
             RadioButton answer = new RadioButton(question.getAnswerChoices(questionIndex).get(i).toString());
             answer.setToggleGroup(answerChoices);
             answer.setUserData(i);

@@ -1,3 +1,4 @@
-Millist värvi rattaga ei tohi autoteel sõita?;sinine;punane;lilla;valge;0
-Mida ei tohi rattur teha?;kukkuda;laulda;joosta;magada;0
-Kus peab rattar olema punane tuli?;lenksul;kodarates;ratta taga;raamis;0
+Millist värvi rattaga ei tohi autoteel sõita?;0;sinine;punane;lilla;valge
+Mida ei tohi rattur teha?;0;kukkuda;laulda;joosta
+Kus peab rattar olema punane tuli?;0;lenksul;kodarates;ratta taga;ees;maja all
+Mis on aasta kõige parem kuu?;2

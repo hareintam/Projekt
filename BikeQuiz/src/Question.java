@@ -44,7 +44,7 @@ public class Question {
 
     public ArrayList getAnswerChoices(int questionIndex) {
         ArrayList list = new ArrayList();
-        for (int i = 1; i < 5; i++) {
+        for (int i = 2; i < data.get(questionIndex).size(); i++) {
             list.add(data.get(questionIndex).get(i));
         }
         return list;
@@ -52,7 +52,7 @@ public class Question {
 
     public boolean checkAnswer(int questionIndex) {
         // kontrollib, kas vastaja valik ühtib Question.txt failis oleva õige vastuse indeksiga
-        if (data.get(questionIndex).get(5).equals(Quiz.USER_CHOICE)) {
+        if (data.get(questionIndex).get(1).equals(Quiz.USER_CHOICE)) {
             System.out.println("Vastasite õigesti");
             return true;
         }
