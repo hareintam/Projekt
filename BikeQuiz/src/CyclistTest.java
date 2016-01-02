@@ -1,57 +1,58 @@
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 
 public class CyclistTest extends Application {
 
-    public static String USER_CHOICE;
+    public static String USER_CHOICE = "0";
+    private int QUESTIONS_ANSWERED = 1;
+    private int GAME_SCORE = 0;
 
 
 
     public static void main(String[] args) {
         launch(args);
-
-
-        //System.out.println(question.showAnswerChoices(0).toString());
-        /*for (int i = 0; i < question.data.size(); i++) {
-            question.showQuestion(i);
-        }*/
-
     }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //StackPane layout = new StackPane();
         primaryStage.setTitle("Küsimustik");
-        VBox layout = new VBox();
-        Scene questionScene = new Scene(layout, 400, 400);
+        StackPane window = new StackPane();
+        VBox layout = new VBox(15);
+        window.getChildren().add(layout);
+        Scene questionScene = new Scene(window, 400, 300);
         primaryStage.setScene(questionScene);
         primaryStage.show();
 
         Question question = new Question();
+        question.getData();
+        System.out.println("data size is: " + question.data.size());
         Button nextQuestion = new Button("Edasi");
+        window.getChildren().add(nextQuestion);
 
-        addContentToLayout(0, layout, question, nextQuestion);
+        addQuestionToLayout(0, layout, question);
+        setNextQuestionButtonHandler(0, nextQuestion, layout, question, window);
 
-/*        question.getData();
-        Label questionText = new Label(question.showQuestionText(0));
-        Button nextQuestion = new Button("Edasi");
+    }
+
+    public void addQuestionToLayout(int questionIndex, VBox layout, Question question) {
+
+        Label questionText = new Label(questionIndex+1 + "/" + question.data.size() + ". küsimus: " + question.getQuestionText(questionIndex));
 
         ToggleGroup answerChoices = new ToggleGroup();
-        RadioButton answer1 = new RadioButton(question.showAnswerChoices(0).get(0).toString());
-        RadioButton answer2 = new RadioButton(question.showAnswerChoices(0).get(1).toString());
-        RadioButton answer3 = new RadioButton(question.showAnswerChoices(0).get(2).toString());
-        RadioButton answer4 = new RadioButton(question.showAnswerChoices(0).get(3).toString());
-        answer1.setToggleGroup(answerChoices);
+        RadioButton answer1 = new RadioButton(question.getAnswerChoices(questionIndex).get(0).toString());
+        RadioButton answer2 = new RadioButton(question.getAnswerChoices(questionIndex).get(1).toString());
+        RadioButton answer3 = new RadioButton(question.getAnswerChoices(questionIndex).get(2).toString());
+        RadioButton answer4 = new RadioButton(question.getAnswerChoices(questionIndex).get(3).toString());
+
         answer1.setSelected(true);
+        answer1.setToggleGroup(answerChoices);
         answer2.setToggleGroup(answerChoices);
         answer3.setToggleGroup(answerChoices);
         answer4.setToggleGroup(answerChoices);
@@ -61,69 +62,56 @@ public class CyclistTest extends Application {
         answer3.setUserData(2);
         answer4.setUserData(3);
 
+        layout.getChildren().add(questionText);
+        layout.getChildren().add(answer1);
+        layout.getChildren().add(answer2);
+        layout.getChildren().add(answer3);
+        layout.getChildren().add(answer4);
+
+        getSelectedAnswer(answerChoices);
+
+    }
+
+    public void getSelectedAnswer(ToggleGroup answerChoices) {
         answerChoices.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if (newValue == null) {
-                    answer1.setSelected(true);
-                } else {
-                    System.out.println(answerChoices.getSelectedToggle().getUserData().toString());
-                    USER_CHOICE = answerChoices.getSelectedToggle().getUserData().toString();
-                }
+                USER_CHOICE = answerChoices.getSelectedToggle().getUserData().toString();
             }
         });
+    }
 
-        layout.getChildren().addAll(questionText, answer1, answer2, answer3, answer4, nextQuestion);*/
-
+    public void setNextQuestionButtonHandler(int questionIndex, Button nextQuestion, VBox layout, Question question, StackPane window) {
         nextQuestion.setOnAction(event -> {
-            System.out.println("järgmine küsimus");
-            question.checkAnswer(0);
+            countCorrectAnswers(questionIndex, question);
+            System.out.println("Mängu skoor on " + GAME_SCORE);
             layout.getChildren().clear();
 
-
-
-        });
-
-
-    }
-
-    public void addContentToLayout(int questionIndex, VBox layout, Question question, Button nextQuestion) {
-        question.getData();
-
-        Label questionText = new Label(question.showQuestionText(questionIndex));
-
-        ToggleGroup answerChoices = new ToggleGroup();
-        RadioButton answer1 = new RadioButton(question.showAnswerChoices(questionIndex).get(0).toString());
-        RadioButton answer2 = new RadioButton(question.showAnswerChoices(questionIndex).get(1).toString());
-        RadioButton answer3 = new RadioButton(question.showAnswerChoices(questionIndex).get(2).toString());
-        RadioButton answer4 = new RadioButton(question.showAnswerChoices(questionIndex).get(3).toString());
-
-        answer1.setToggleGroup(answerChoices);
-        answer1.setSelected(true);
-        answer2.setToggleGroup(answerChoices);
-        answer3.setToggleGroup(answerChoices);
-        answer4.setToggleGroup(answerChoices);
-
-        answer1.setUserData(0);
-        answer2.setUserData(1);
-        answer3.setUserData(2);
-        answer4.setUserData(3);
-
-        answerChoices.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if (newValue == null) {
-                    answer1.setSelected(true);
-                } else {
-                    System.out.println(answerChoices.getSelectedToggle().getUserData().toString());
-                    USER_CHOICE = answerChoices.getSelectedToggle().getUserData().toString();
-                }
+            if (question.data.size() == QUESTIONS_ANSWERED) {
+                removeNextQuestionButton(nextQuestion, window);
+                quizSummary(layout);
+                // show summary page
+            } else {
+                addQuestionToLayout(QUESTIONS_ANSWERED, layout, question);
+                System.out.println("Vastatud on " + QUESTIONS_ANSWERED + " küsimusele");
+                QUESTIONS_ANSWERED++;
             }
         });
-
-        layout.getChildren().addAll(questionText, answer1, answer2, answer3, answer4, nextQuestion);
-
     }
 
+    public void countCorrectAnswers(int questionIndex, Question question) {
+        if (question.checkAnswer(questionIndex)) {
+            GAME_SCORE++;
+        }
+    }
+
+    public void removeNextQuestionButton(Button nextQuestion, StackPane window){
+        window.getChildren().remove(nextQuestion);
+    }
+
+    public void quizSummary(VBox layout) {
+        Label quizScore = new Label("Palju õnne! Vastasite õigesti " + GAME_SCORE + " küsimusele!");
+        layout.getChildren().addAll(quizScore);
+    }
 }
 

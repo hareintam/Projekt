@@ -25,8 +25,6 @@ public class Question {
                 List<String> wordList = Arrays.asList(lineContent);
                 data.add(wordList);
             }
-            //System.out.println(data.get(0).get(2));
-            //System.out.println(data.get(1));
 
         } catch (java.io.IOException e) {
             e.printStackTrace();
@@ -39,22 +37,12 @@ public class Question {
         }
     }
 
-    public void showQuestion(int questionIndex) {
-        showQuestionText(questionIndex);
-        showAnswerChoices(questionIndex);
-        checkAnswer(questionIndex);
-
-    }
-
-    public String showQuestionText(int questionIndex) {
-        int questionNr = questionIndex + 1;
-        //System.out.println("Küsimus number " + questionNr);
-        //System.out.println(data.get(questionIndex).get(0));
+    public String getQuestionText(int questionIndex) {
         return data.get(questionIndex).get(0);
     }
 
 
-    public ArrayList showAnswerChoices(int questionIndex) {
+    public ArrayList getAnswerChoices(int questionIndex) {
         ArrayList list = new ArrayList();
         for (int i = 1; i < 5; i++) {
             list.add(data.get(questionIndex).get(i));
@@ -65,10 +53,12 @@ public class Question {
     public boolean checkAnswer(int questionIndex) {
         // kontrollib, kas kasutaja vastus ühtib tekstifailis olevaga
         if (data.get(questionIndex).get(5).equals(CyclistTest.USER_CHOICE)) {
-            System.out.println("õige");
+            System.out.println("Vastasite õigesti");
             return true;
         }
-        System.out.println("vale");
+        System.out.println("Vastasite valesti");
+        System.out.println("Õige valikvastus on " + data.get(questionIndex).get(5));
+        System.out.println("Kasutaja valik salvestatakse kujul: " + CyclistTest.USER_CHOICE);
         return false;
     }
 

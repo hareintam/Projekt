@@ -1,3 +1,3 @@
-Millist värvi rattaga ei tohi autoteel sõita?;sinine;punane;lilla;valge;3
+Millist värvi rattaga ei tohi autoteel sõita?;sinine;punane;lilla;valge;0
 Mida ei tohi rattur teha?;kukkuda;laulda;joosta;magada;0
-Kus peab rattar olema punane tuli?;lenksul;kodarates;ratta taga;raamis;2
+Kus peab rattar olema punane tuli?;lenksul;kodarates;ratta taga;raamis;0
