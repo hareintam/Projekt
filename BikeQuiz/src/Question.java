@@ -51,14 +51,14 @@ public class Question {
     }
 
     public boolean checkAnswer(int questionIndex) {
-        // kontrollib, kas kasutaja vastus ühtib tekstifailis olevaga
-        if (data.get(questionIndex).get(5).equals(CyclistTest.USER_CHOICE)) {
+        // kontrollib, kas vastaja valik ühtib Question.txt failis oleva õige vastuse indeksiga
+        if (data.get(questionIndex).get(5).equals(Quiz.USER_CHOICE)) {
             System.out.println("Vastasite õigesti");
             return true;
         }
         System.out.println("Vastasite valesti");
         System.out.println("Õige valikvastus on " + data.get(questionIndex).get(5));
-        System.out.println("Kasutaja valik salvestatakse kujul: " + CyclistTest.USER_CHOICE);
+        System.out.println("Kasutaja valik salvestatakse kujul: " + Quiz.USER_CHOICE);
         return false;
     }
 
