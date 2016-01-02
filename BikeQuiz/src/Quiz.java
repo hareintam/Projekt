@@ -38,7 +38,6 @@ public class Quiz extends Application {
         question.getData();
         System.out.println("data size is: " + question.data.size());
         Button continueButton = new Button("Edasi");
-        continueButton.setDisable(true);
         window.getChildren().add(continueButton);
 
         addQuestionToLayout(0, layout, question, continueButton);
@@ -49,7 +48,6 @@ public class Quiz extends Application {
     public void addQuestionToLayout(int questionIndex, VBox layout, Question question, Button continueButton) {
 
         continueButton.setDisable(true);
-        IS_RADIOBUTTON_SELECTED = false;
         Label questionText = new Label(questionIndex+1 + "/" + question.data.size() + ". küsimus: " + question.getQuestionText(questionIndex));
         layout.getChildren().add(questionText);
 
@@ -114,7 +112,7 @@ public class Quiz extends Application {
             Label quizScore = new Label("Palju õnne! Vastasite õigesti kõigile küsimustele. \nKokku saite " + GAME_SCORE + " punkti.");
             layout.getChildren().add(quizScore);
         } else {
-            Label quizScore = new Label("Tubli üritus! Vastasite õigesti " + GAME_SCORE + " küsimusele.");
+            Label quizScore = new Label("Tubli üritus! Vastasite õigesti " + GAME_SCORE + " küsimusele " + question.data.size() +"st!");
             Label wrongAnswers = new Label("Valesti vastasite järgmistele küsimustele: ");
             layout.getChildren().addAll(quizScore, wrongAnswers);
             for (int i = 0; i < WRONG_ANSWERS.size() ; i++) {
