@@ -1,4 +1,4 @@
-Millist värvi rattaga ei tohi autoteel sõita?;0;sinine;punane;lilla;valge
-Mida ei tohi rattur teha?;1;kukkuda;laulda;joosta
-Kus peab rattar olema punane tuli?;2;lenksul;kodarates;ratta taga;ees;maja all
-Mis on aasta kõige parem kuu?;3;juuni;juuli;august;september
+Mis on Päikese pinna temperatuur?;2;2000 kraadi;3000 kraadi;6000 kraadi;10000 kraadi
+Mis sajandil sündis Aleksander Suur?;1;4. sajand;4. sajand e.m.a.;1. sajand e.m.a.;8. sajand
+Kui palju on ringluses eurosid?;0;993 miljardit;391 miljardit;139 miljardit
+Kui palju kaalub raskeim sinivaal?;4;5 tonni;7,9 tonni;20 tonni;100 tonni;170 tonni

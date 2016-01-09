@@ -12,9 +12,7 @@ public class Question {
     public Question() {
     }
 
-    //Questions.txt failis on igal real küsimus,õige vastusevariandi indeks ja vastusevariandid
-    //rea sisu on eraldatud semikooloniga
-    //meetod getData loeb tekstifaili sisu rida-realt programmi
+    //Meetod loeb kogu tekstifaili sisu rida-realt programmi
     public void getData() {
         BufferedReader input = null;
         String line;
@@ -39,12 +37,11 @@ public class Question {
         }
     }
 
-    //muutuja questionIndex on tekstifaili reanumber data maatriksis ehk küsimusenr
+    //Muutuja questionIndex on küsimusenr data maatriksis
     public String getQuestionText(int questionIndex) {
         return data.get(questionIndex).get(0);
     }
 
-    //i on 2, sest vastusevariandid algavad tekstifailis 3. positsioonilt
     public ArrayList getAnswerChoices(int questionIndex) {
         ArrayList list = new ArrayList();
         for (int i = 2; i < data.get(questionIndex).size(); i++) {
@@ -52,7 +49,7 @@ public class Question {
         }
         return list;
     }
-    // kontrollib, kas vastaja valik ühtib tekstifailis oleva õige vastuse indeksiga
+    //Kontrollib, kas vastaja valik ühtib tekstifailis oleva õige vastuse indeksiga
     public boolean checkAnswer(int questionIndex) {
         if (data.get(questionIndex).get(1).equals(Quiz.USER_CHOICE)) {
             return true;
