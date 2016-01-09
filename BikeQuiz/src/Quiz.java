@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -33,7 +34,8 @@ public class Quiz extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Küsimustik");
         StackPane window = new StackPane();
-        VBox layout = new VBox(10);
+        VBox layout = new VBox(5);
+        layout.setPadding(new Insets(10));
         window.getChildren().add(layout);
         Scene questionScene = new Scene(window, 400, 300);
         primaryStage.setScene(questionScene);
@@ -111,8 +113,8 @@ public class Quiz extends Application {
     }
 
     private void quizSummary(VBox layout, Question question) {
-        Button close = new Button("Sulge küsitlus");
-        close.setAlignment(Pos.BOTTOM_RIGHT);
+        Button close = new Button("Sulge küsimustik");
+        close.setAlignment(Pos.BOTTOM_CENTER);
         close.setOnAction(event -> ((Node)(event.getSource())).getScene().getWindow().hide());
 
 
@@ -121,7 +123,7 @@ public class Quiz extends Application {
             layout.getChildren().addAll(quizScore, close);
         } else {
             Label quizScore = new Label("Tubli üritus! Vastasite õigesti " + GAME_SCORE + "le" + " küsimusele " + question.data.size() +"st!");
-            Label wrongAnswers = new Label("Valesti vastasite järgmistele küsimustele: ");
+            Label wrongAnswers = new Label("\nValesti vastasite järgmistele küsimustele: ");
             layout.getChildren().addAll(quizScore, wrongAnswers);
             for (int i = 0; i < WRONG_ANSWERS.size() ; i++) {
                 Label wrongs = new Label(question.getQuestionText(WRONG_ANSWERS.get(i)));
