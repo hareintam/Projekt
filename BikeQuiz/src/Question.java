@@ -56,9 +56,6 @@ public class Question {
             System.out.println("Vastasite õigesti");
             return true;
         }
-        System.out.println("Vastasite valesti");
-        System.out.println("Õige valikvastus on " + data.get(questionIndex).get(5));
-        System.out.println("Kasutaja valik salvestatakse kujul: " + Quiz.USER_CHOICE);
         return false;
     }
 
