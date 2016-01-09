@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50db72f1-3d22-4f15-b07c-2dc11d23a685" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Quiz.iml" afterPath="$PROJECT_DIR$/BikeQuiz.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Question.java" afterPath="$PROJECT_DIR$/src/Question.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Questions.txt" afterPath="$PROJECT_DIR$/Questions.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BikeQuiz/Question.class" afterPath="$PROJECT_DIR$/out/production/BikeQuiz/Question.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Quiz.java" afterPath="$PROJECT_DIR$/src/Quiz.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -41,8 +39,8 @@
       <file leaf-file-name="Quiz.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Quiz.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.9178082">
-              <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.31506848">
+              <caret line="73" column="49" selection-start-line="72" selection-start-column="74" selection-end-line="73" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -61,6 +59,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -392,7 +391,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452363330944</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="New questions, minor fixes">
+      <created>1452374728207</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1452374728207</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -445,7 +450,8 @@
     <MESSAGE value="Exit quiz added" />
     <MESSAGE value="Better alignment" />
     <MESSAGE value="Added comments to code; refactored code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments to code; refactored code" />
+    <MESSAGE value="New questions, minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="New questions, minor fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -506,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Quiz.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9178082">
-          <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.31506848">
+          <caret line="73" column="49" selection-start-line="72" selection-start-column="74" selection-end-line="73" selection-end-column="49" />
           <folding />
         </state>
       </provider>

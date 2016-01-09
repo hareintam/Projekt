@@ -19,7 +19,6 @@ public class Quiz extends Application {
     private int QUESTIONS_ANSWERED = 1;
     private int QUIZ_SCORE = 0;
     private ArrayList<Integer> WRONG_ANSWERS = new ArrayList<>();
-    private boolean IS_RADIOBUTTON_SELECTED = false;
 
 
 
@@ -71,7 +70,6 @@ public class Quiz extends Application {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                 USER_CHOICE = answerChoices.getSelectedToggle().getUserData().toString();
-                IS_RADIOBUTTON_SELECTED = true;
                 //pärast kasutaja valikut tuleb Edasi nupp aktiivseks teha
                 continueButton.setDisable(false);
             }
